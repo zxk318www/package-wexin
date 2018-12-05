@@ -1,0 +1,41 @@
+
+<scroll-view style="display: inline;" enable-back-to-top scroll-y bindscrolltolower="loadMorePage">
+    <view class="weui-panel">
+        <view class="weui-panel_bd" >
+                <navigator wx:for="{{ mini }}" wx:key="{{ item.id }}" url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" style="height:inherit;width:120rpx">
+                            <image style="width: 128rpx;height: 168rpx;" class="weui-media-box__thumb" src="{{ item.headImg }}" mode="aspectFit"/>
+                            <view class="weui-media-box__desc"> {{ item.nickname }}</view>
+                        </view>
+                        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        
+                           
+                            <view class="weui-media-box__info">
+                            
+                            <view class="weui-media-box__info" wx:if="{{item.rating<=0}}">评分：暂无</view>
+                            <view class="weui-media-box__info" wx:if="{{item.rating>0}}">评分：{{item.rating}}</view>
+                            <view class="weui-media-box__info">{{ item. content }}</view>
+                            </view>
+                        </view>
+                    
+                        </navigator>
+    
+                    <navigator wx:for="{{ plus }}" wx:key="{{ item.id }}" url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" style="height:inherit;width:120rpx">
+                                <image style="width: 128rpx;height: 168rpx;" class="weui-media-box__thumb" src="{{ item.headImg }}" mode="aspectFit"/>
+                                <view class="weui-media-box__desc"> {{ item.nickname }}</view>
+                            </view>
+                            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                            
+                                
+                                <view class="weui-media-box__info">
+                                 <view class="weui-media-box__info" wx:if="{{item.rating<=0}}">评分：暂无</view>
+                                 <view class="weui-media-box__info" wx:if="{{item.rating>0}}">评分：{{item.rating}}</view>
+                                <view class="weui-media-box__info">{{ item. content }}</view>
+                                </view>
+                            </view>
+                        
+                            </navigator>
+            </view>
+        </view>
+</scroll-view>

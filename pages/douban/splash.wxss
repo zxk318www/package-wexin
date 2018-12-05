@@ -1,0 +1,11 @@
+.swip{
+    height: 100%;
+    width: 100%;
+}
+.swimg{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: .8;
+}
+

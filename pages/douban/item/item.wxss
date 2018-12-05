@@ -1,0 +1,21 @@
+.text{
+    text-align: center
+}
+
+.myVideo{ 
+    width:100%;
+    height: calc(9 * 750rpx / 16);
+    background-color: #fff;
+  }
+  
+  .play{ 
+      position:absolute;
+      left:50%;
+      margin-top:-300rpx;
+      margin-left:-80rpx;    
+  }
+  
+ .videocls{
+    width: 100%;
+  }
+ 

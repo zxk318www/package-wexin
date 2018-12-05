@@ -1,0 +1,106 @@
+<!--pages/douban/item/item.wxml-->
+<loading hidden="{{ !loading }}">加载中</loading>
+<image style="position: fixed;left: 0;top: 0;right: 0;bottom: 0;height: 100%;width: 100%;z-index: -1000;opacity: .05;"
+    src="{{ movie.img }}" mode="aspectFill" />
+<scroll-view scroll-y>
+    <view class="weui-article">
+        <view class="weui-article__section">
+
+            <view class="weui-article__section">
+                <image class="weui-article__img" src="{{ movie.img}}" mode="aspectFit" style="width: 100%;height: 800rpx" />
+            </view>
+
+
+        </view>
+        <view class="weui-article__h1">{{ movie.name }}({{ movie.nameEn }})</view>
+
+        <view class="weui-media-box__info" style="margin-top:10rpx;">
+            <view class="weui-media-box__info__meta">宣传视频：</view>
+        </view>
+    
+            <video src="{{ movie.video.hightUrl }}" show-fullscreen-btn direction="90" controls class="videocls"  poster="{{ movie.video.img }}" >
+                
+            </video>
+
+           
+        
+     
+
+        <view class="weui-media-box__info" style="margin-top:10rpx;">
+            <view class="weui-media-box__info__meta">剧照：</view>
+        </view>
+        <scroll-view scroll-x >
+
+            <view style="display:flex;">
+                
+                    <view wx:for="{{ movie.stageImg.list }}" wx:key="{{ item.id }}" style="display:flex;flex-direction:column;width:180rpx;margin:10rpx;">
+                        <image style="width:180rpx;height:250rpx;" src="{{ item.imgUrl }}" bindtap="imgYu" data-list="{{movie.stageImg.list}}" data-src="{{ item.imgUrl }}" mode="aspectFit" />
+                    </view>
+                
+            </view>
+        </scroll-view>
+
+        <view class="weui-article__section">
+            <view class="weui-media-box__info" style="margin-top:10rpx;">
+                <view class="weui-media-box__info__meta">上映时间：{{ movie.releaseDate }}</view>
+            </view>
+            <view class="weui-media-box__info" style="margin-top:10rpx;">
+                <view class="weui-media-box__info__meta">产地：{{ movie.releaseArea }}</view>
+            </view>
+            <view class="weui-media-box__info" style="margin-top:10rpx;">
+                <view class="weui-media-box__info__meta">时长：{{ movie.mins }}</view>
+            </view>
+            <view class="weui-media-box__info" style="margin-top:10rpx;">
+                    <view class="weui-media-box__info__meta">类型：
+                        [
+                        <block wx:for="{{ movie.type }}" wx:key="{{ item.id }}"> {{ item }} </block>
+                        ]
+                    </view>
+                </view>
+            <view class="weui-media-box__info" style="margin-top:10rpx;">
+                <view class="weui-media-box__info__meta" wx:if="{{movie.overallRating == -1}}">评分：暂无(人数：{{movie.personCount}})</view>
+                <view class="weui-media-box__info__meta" wx:if="{{movie.overallRating != -1}}">评分：{{movie.overallRating}}(人数：{{movie.personCount}})</view>
+            </view>
+            <view class="weui-media-box__info" style="margin-top:10rpx;">
+                <view class="weui-media-box__info__meta">导演：
+                    {{ movie.director.name }} ({{ movie.director.nameEn }})</view>
+            </view>
+            <view class="weui-media-box__info" style="margin-top:10rpx;">
+                <view class="weui-media-box__info__meta">主演：
+                </view>
+            </view>
+            <scroll-view scroll-x>
+
+                    <view style="display:flex;">
+                        <navigator wx:for="{{  movie.actors }}" wx:key="{{ item.id }}" >
+                            <view style="display:flex;flex-direction:column;width:180rpx;margin:10rpx;">
+                                <image style="width:180rpx;height:250rpx;" src="{{ item.img }}" mode="aspectFit"/>
+                                <view class="text">{{ item.name }} </view>
+                                <view class="text">({{item.roleName}})</view>
+                            </view>
+                        </navigator>
+                    </view>
+                </scroll-view>
+            <view class="weui-media-box__info" style="margin-top:10rpx;">
+                <view class="weui-media-box__info__meta">剧情：
+                    {{ movie.story }}
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-article__section">
+            <view class="weui-article__p">
+                {{ movie.summary }}
+            </view>
+        </view>
+
+        <view class="weui-article__section">
+                <view class="weui-article__p">
+                   评论：
+                    <navigator class="weui-search-bar__text" target="" url="../discuss/discuss?id={{movie.movieId}}" hover-class="navigator-hover" open-type="navigate">
+                        点击查看
+                    </navigator>
+                </view>
+            </view>
+    </view>
+</scroll-view>

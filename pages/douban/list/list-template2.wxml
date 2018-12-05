@@ -1,0 +1,22 @@
+<template name="list-template2">
+        <scroll-view style="display: inline;" enable-back-to-top scroll-y bindscrolltolower="loadMorePage">
+            <view class="weui-panel">
+                <view class="weui-panel_bd" >
+                        <navigator wx:for="{{ movies }}" wx:key="{{ item.id }}" url="../item/item?id={{item.id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                                <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" style="height:inherit;width:120rpx">
+                                  <image style="width: 128rpx;height: 168rpx;" class="weui-media-box__thumb" src="{{ item.image }}" mode="aspectFit"/>
+                                </view>
+                                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                                  <view class="weui-media-box__title">{{ item.title }}</view>
+                                  <view class="weui-media-box__desc"> ({{ item.rYear }}.{{item.rMonth}}.{{item.rDay}})</view>
+                                  <view class="weui-media-box__info">
+                                    导演：
+                                    <block wx:for="{{ item.director }}" wx:key="{{ item.id }}"> {{ item }} </block>
+                                  </view>
+                                </view>
+                            
+                              </navigator>
+                </view>
+            </view>
+        </scroll-view>
+</template>

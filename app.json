@@ -1,0 +1,17 @@
+{
+  "pages":[
+    "pages/douban/index",
+    "pages/douban/splash",
+    "pages/douban/item/item",
+    "pages/douban/list/list",
+    "pages/douban/discuss/discuss",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Time影讯",
+    "navigationBarTextStyle":"black"
+    
+  }
+}

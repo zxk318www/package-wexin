@@ -1,0 +1,5 @@
+<swiper class="swip" indicator-dots>
+        <swiper-item wx:for="{{ subjects }}" wx:key="{{ item.id }}" style="flex: 1;">
+          <image src="{{ item.images.large }}" mode="aspectFill" class="swimg" />
+        </swiper-item>
+ </swiper>

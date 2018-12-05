@@ -1,0 +1,5 @@
+<!--pages/douban/list/list.wxml-->
+<import src ="list-template.wxml"/>
+<import src ="list-template2.wxml" />
+<template is="list-template" wx:if="{{num==0}}" data="{{ movies }}"></template>
+<template is="list-template2" wx:if="{{num==1}}" data="{{ movies }}"></template>
